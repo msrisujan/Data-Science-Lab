@@ -36,16 +36,16 @@ def main():
             diabetes = len(df[(df["Age"] > 50) & (df["Outcome"] == 1)])
             print("Probability of diabetes given age above 50: ", round(diabetes / total, 3))
         elif choice == 3:
-            total = len(df[(df["Age"] > 40) & (df["Age"] < 50)])
-            diabetes = len(df[(df["Age"] > 40) & (df["Age"] < 50) & (df["Outcome"] == 1)])
+            total = len(df[(df["Age"] > 40) & (df["Age"] <= 50)])
+            diabetes = len(df[(df["Age"] > 40) & (df["Age"] <= 50) & (df["Outcome"] == 1)])
             print("Probability of diabetes given age between 40 and 50: ", round(diabetes / total, 3))
         elif choice == 4:
-            total = len(df[(df["Age"] > 30) & (df["Age"] < 40)])
-            diabetes = len(df[(df["Age"] > 30) & (df["Age"] < 40) & (df["Outcome"] == 1)])
+            total = len(df[(df["Age"] > 30) & (df["Age"] <= 40)])
+            diabetes = len(df[(df["Age"] > 30) & (df["Age"] <= 40) & (df["Outcome"] == 1)])
             print("Probability of diabetes given age between 30 and 40: ", round(diabetes / total, 3))
         elif choice == 5:
-            total = len(df[df["Age"] < 30])
-            diabetes = len(df[(df["Age"] < 30) & (df["Outcome"] == 1)])
+            total = len(df[df["Age"] <= 30])
+            diabetes = len(df[(df["Age"] <= 30) & (df["Outcome"] == 1)])
             print("Probability of diabetes given age less than 30: ", round(diabetes / total, 3))
         elif choice == 6:
             break
