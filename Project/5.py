@@ -7,7 +7,7 @@ import random as rd
 # df = pd.concat([df1, df2], ignore_index=True)
 
 #add duplicates and null values
-df=pd.read_csv('Dataset_Final31.csv')
+df=pd.read_csv('Dataset_Final4.csv')
 # cgpas=[]
 #generate random cgpas 
 # for i in range(len(df)):
@@ -26,27 +26,20 @@ df=pd.read_csv('Dataset_Final31.csv')
 #                 print(df['Roll No'][i])
 # count = 0
 # for i in range(len(df)):
-#     if df['Weight'][i] >= 55 and df['Weight'][i] < 75:
+#     if df['Height'][i] >=170  and df['Height'][i] < 186:
 #         count += 1
 # print(count)
 
 # count1 = 0
 # count2 = 0
-# for i in range(len(df)):
-#     if count1 <= 250:
-#         if df['Weight'][i] >= 75 and df['Weight'][i] <= 90:
-#             df['Weight'][i] += 2
-#             df['BMI'][i] = round(df['Weight'][i]/(df['Height'][i]/100)**2,2)
-#             count1 += 1 
-#     if count2 <= 340:
-#         if df['Weight'][i] >= 55 and df['Weight'][i] < 75:
-#             df['Weight'][i] -= 2
-#             df['BMI'][i] = round(df['Weight'][i]/(df['Height'][i]/100)**2,2)
-#             count2 += 1
-    
-# keep mean for missing values
-df['Height'].fillna(round(df['Height'].mean(),2), inplace=True)
-df['Weight'].fillna(round(df['Weight'].mean(),2), inplace=True)
+for i in range(len(df)):
+    df['BMI'][i] = round(df['Weight'][i]/(df['Height'][i]/100)**2,2)
+    # if count2 <= 150:
+    #     if df['Height'][i] >= 55 and df['Height'][i] < 75:
+    #         df['Height'][i] -= 2
+    #         df['BMI'][i] = round(df['Weight'][i]/(df['Height'][i]/100)**2,2)
+    #         count2 += 1
 
+shuffle_df = df.sample(frac=1)
 
-shuffle_df.to_csv('Dataset_Final3.csv', index=False)
+shuffle_df.to_csv('Dataset_Final4.csv', index=False)
